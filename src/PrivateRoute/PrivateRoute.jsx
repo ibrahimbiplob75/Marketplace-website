@@ -21,3 +21,10 @@ PrivateRoute.propTypes = {
 };
 
 export default PrivateRoute;
+
+
+//category
+// https://i.ibb.co/C8qZdZm/category-5.png 
+// https://i.ibb.co/vhpwTB7/category-4.png 
+// https://i.ibb.co/m0LkqCS/category-3.png 
+// https://i.ibb.co/hK4bp1Y/category-2.png 

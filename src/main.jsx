@@ -12,6 +12,7 @@ import Register from './Register/Register.jsx'
 import LogIn from './LogIn/LogIn.jsx';
 import AuthProvider from './AuthContext/AuthProvider.jsx';
 import PrivateRoute from './PrivateRoute/PrivateRoute.jsx';
+import ProductDetails from './Components/ProductDetails.jsx';
 
 
 
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: () => fetch("http://localhost:5000/product"),
       },
 
       {
@@ -50,6 +52,12 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/product/details/:id",
+        element: <ProductDetails></ProductDetails>,
+        loader: ({params}) =>
+          fetch(`http://localhost:5000/product/details/${params.id}`),
       },
     ],
   },

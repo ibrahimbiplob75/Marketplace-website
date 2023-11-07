@@ -1,3 +1,4 @@
+import { useLoaderData } from "react-router-dom";
 import slider1 from "../assets/img-4.jpg";
 import slider2 from "../assets/img-5.jpg";
 import slider3 from "../assets/img-6.jpg"
@@ -8,13 +9,26 @@ import {
   FaMoneyCheckAlt,
   FaRocket,
 } from "react-icons/fa";
+import Products from "./Products";
 
 const Home = () => {
+  const datas=useLoaderData();
+  console.log(datas)
+  
     return (
       <div>
         <div className="flex justify-around mt-10">
           <div className="flex-initial w-1/3 text-center mr-6 ml-8">
-            <h2 className="text-3xl font-bold border">Category</h2>
+            <h2 className="text-3xl font-bold">Category</h2>
+            <div className="m-6">
+              {[...new Set(datas.map((data) => data.category))].map(
+                (category) => (
+                  <button className="btn btn-outline w-full border-none text-xl" key={category}>
+                    {category}
+                  </button>
+                )
+              )}
+            </div>
           </div>
 
           <div className="flex-initial w-full">
@@ -68,7 +82,7 @@ const Home = () => {
         </div>
 
         {/* Shiping */}
-        <div className="flex justify-around mt-20 mb-10  w-3/4 mx-auto shadow-2xl">
+        <div className="grid grid-cols-2 md:grid-cols-4 mt-20 mb-10  w-3/4 mx-auto shadow-2xl">
           <div className="flex justify-center items-center p-6">
             <FaTruck className="text-xl w-32 h-12 text-red-600"></FaTruck>
             <div>
@@ -100,6 +114,13 @@ const Home = () => {
               <p>You have 30 days to Return</p>
             </div>
           </div>
+        </div>
+
+        {/*Products added by admin */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 m-6">
+          {datas.map((data) => (
+            <Products key={data._id} data={data}></Products>
+          ))}
         </div>
       </div>
     );
