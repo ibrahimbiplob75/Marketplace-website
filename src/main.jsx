@@ -7,7 +7,6 @@ import ErrorPage from './Components/ErrorPage.jsx';
 import Home from './Components/Home.jsx';
 import MyCart from './Components/MyCart.jsx';
 import AddProduct from './Components/AddProduct.jsx';
-
 import Register from './Register/Register.jsx'
 import LogIn from './LogIn/LogIn.jsx';
 import AuthProvider from './AuthContext/AuthProvider.jsx';
@@ -44,6 +43,7 @@ const router = createBrowserRouter([
             <MyCart></MyCart>
           </PrivateRoute>
         ),
+        loader: () => fetch("http://localhost:5000/product/myCart"),
       },
       {
         path: "/login",
@@ -55,10 +55,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/product/details/:id",
-        element: <ProductDetails></ProductDetails>,
-        loader: ({params}) =>
+        element: (
+          <PrivateRoute>
+            <ProductDetails></ProductDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
           fetch(`http://localhost:5000/product/details/${params.id}`),
       },
+      // {
+      //   path: "/mycart",
+      //   element: <MyCart></MyCart>,
+
+      // },
     ],
   },
 ]);

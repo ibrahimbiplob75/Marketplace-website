@@ -7,26 +7,31 @@ import Swal from "sweetalert2";
 const ProductDetails = () => {
    const {  name, brand, category,details, photo, price } = useLoaderData();
    const {user}=useContext(ContextProvider);
-   const user_email=user.email;
+   const user_email=user?.email;
 
    const handleCart=()=>{
+        
         const CartProduct={user_email,name,photo,price};
         console.log(CartProduct);
 
-         fetch("http://localhost:5000/Cartproduct",{
-
+         fetch("http://localhost:5000/Cartproduct", {
+           method: "POST",
+           headers: {
+             "content-type": "application/json",
+           },
+           body:JSON.stringify(CartProduct)
          })
-         .then(res=>res.json())
-         .then(data=>{
-            if (data.insertedId) {
-              Swal.fire({
-                title: "Success!",
-                text: "Coffee Added Successfully",
-                icon: "success",
-                confirmButtonText: "Cool",
-              });
-            }
-         })
+           .then((res) => res.json())
+           .then((data) => {
+             if (data.insertedId) {
+               Swal.fire({
+                 title: "Success!",
+                 text: "Mycart Product added Successfully",
+                 icon: "success",
+                 confirmButtonText: "OK",
+               });
+             }
+           });
 
 
 
