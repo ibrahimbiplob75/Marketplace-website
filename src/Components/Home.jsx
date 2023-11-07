@@ -18,7 +18,7 @@ const Home = () => {
           </div>
 
           <div className="flex-initial w-full">
-            <div className="carousel w-4/5">
+            <div className="carousel w-5/6">
               <div id="slide1" className="carousel-item relative w-full">
                 <img src={slider1} className="w-full" />
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -68,7 +68,7 @@ const Home = () => {
         </div>
 
         {/* Shiping */}
-        <div className="flex justify-around mt-20 mb-10 border w-3/4 mx-auto">
+        <div className="flex justify-around mt-20 mb-10  w-3/4 mx-auto shadow-2xl">
           <div className="flex justify-center items-center p-6">
             <FaTruck className="text-xl w-32 h-12 text-red-600"></FaTruck>
             <div>
