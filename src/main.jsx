@@ -12,6 +12,7 @@ import LogIn from './LogIn/LogIn.jsx';
 import AuthProvider from './AuthContext/AuthProvider.jsx';
 import PrivateRoute from './PrivateRoute/PrivateRoute.jsx';
 import ProductDetails from './Components/ProductDetails.jsx';
+import ProductsList from './Components/ProductsList.jsx'
 
 
 
@@ -63,11 +64,12 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/product/details/${params.id}`),
       },
-      // {
-      //   path: "/mycart",
-      //   element: <MyCart></MyCart>,
-
-      // },
+      {
+        path: "/product/list",
+        element: <ProductsList></ProductsList>,
+        loader: () => fetch("http://localhost:5000/product"),
+      },
+      
     ],
   },
 ]);

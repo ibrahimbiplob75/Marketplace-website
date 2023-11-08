@@ -1,9 +1,39 @@
 
 import PropTypes from "prop-types";
+import Swal from "sweetalert2";
 
 
 const MySingleCart = ({data}) => {
-    const {name, photo,price}=data;
+    const {_id,name, photo,price}=data;
+
+    const handleDelete=(_id)=>{
+       Swal.fire({
+         title: "Are you sure?",
+         text: "You won't be able to revert this!",
+         icon: "warning",
+         showCancelButton: true,
+         confirmButtonColor: "#3085d6",
+         cancelButtonColor: "#d33",
+         confirmButtonText: "Yes, delete it!",
+       }).then((result) => {
+         if (result.isConfirmed) {
+           fetch(`http://localhost:5000/product/myCart/${_id}`, {
+             method: "DELETE",
+           })
+             .then((res) => res.json())
+             .then((data) => {
+               
+               if (data.deletedCount > 0) {
+                 Swal.fire(
+                   "Deleted!",
+                   "Your Cart Product has been deleted.",
+                   "success"
+                 );
+               }
+             });
+         }
+       }); 
+    }
     return (
       <div>
         <div className="overflow-x-auto m-20">
@@ -31,7 +61,12 @@ const MySingleCart = ({data}) => {
                 </td>
 
                 <th>
-                  <button className="btn btn-error">Delete</button>
+                  <button
+                    onClick={() => handleDelete(_id)}
+                    className="btn btn-error"
+                  >
+                    Delete
+                  </button>
                 </th>
               </tr>
             </tbody>
@@ -41,7 +76,7 @@ const MySingleCart = ({data}) => {
     );
 };
 MySingleCart.propTypes={
-    data:PropTypes.node
+    data:PropTypes.object,
 }
 
 export default MySingleCart;

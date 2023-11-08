@@ -28,8 +28,8 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link className="text-xl font-semibold font-sans" to="/Contact">
-            Contact Us
+          <Link className="text-xl font-semibold font-sans" to="/product/list">
+            Product
           </Link>
         </li>
       </>

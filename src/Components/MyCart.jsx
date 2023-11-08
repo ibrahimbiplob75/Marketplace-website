@@ -5,7 +5,7 @@ import MySingleCart from "./MySingleCart";
 
 const MyCart = () => {
      const datas = useLoaderData();
-     console.log(datas);
+     
     return (
       <div>
 

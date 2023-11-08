@@ -13,7 +13,6 @@ import Products from "./Products";
 
 const Home = () => {
   const datas=useLoaderData();
-  console.log(datas)
   
     return (
       <div>

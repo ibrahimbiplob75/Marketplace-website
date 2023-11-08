@@ -31,27 +31,37 @@ const Products = ({ data }) => {
               <div>
                 <div className="rating gap-1 ml-5">
                   <input
+                    defaultChecked={true}
+                    readOnly
                     type="radio"
                     name="rating-3"
                     className="mask mask-heart bg-red-400"
                   />
                   <input
+                    defaultChecked={true}
+                    readOnly
                     type="radio"
                     name="rating-3"
                     className="mask mask-heart bg-orange-400"
                     checked
                   />
                   <input
+                    defaultChecked={true}
+                    readOnly
                     type="radio"
                     name="rating-3"
                     className="mask mask-heart bg-yellow-400"
                   />
                   <input
+                    defaultChecked={true}
+                    readOnly
                     type="radio"
                     name="rating-3"
                     className="mask mask-heart bg-lime-400"
                   />
                   <input
+                    defaultChecked={true}
+                    readOnly
                     type="radio"
                     name="rating-3"
                     className="mask mask-heart bg-green-400"
@@ -61,8 +71,10 @@ const Products = ({ data }) => {
             </div>
 
             <div className="card-actions justify-end">
-              <div className="badge badge-outline">{brand}</div>
-              <div className="badge badge-outline">{category}</div>
+              <div className="badge badge-outline">{brand ? brand : ""}</div>
+              <div className="badge badge-outline">
+                {category ? category : ""}
+              </div>
             </div>
           </div>
         </div>
