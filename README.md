@@ -1,8 +1,10 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h1>Project Motive</h1><br>
 
-Currently, two official plugins are available:
+<h3>1: User can buy from home </h3>
+<h3>2: User can delete or cancel order </h3>
+<h3>3: User can add product </h3>
+<h3>4: Admin can delete update product </h3>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
