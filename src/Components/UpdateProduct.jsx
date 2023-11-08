@@ -1,7 +1,20 @@
+import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
 const UpdateProduct = () => {
+    const data=useLoaderData();
+    const {
+        _id,
+      name,
+      quantity,
+      brand,
+      review,
+      category,
+      details,
+      photo,
+      price,
+    }=data;
     const handleAddProduct = (event) => {
       event.preventDefault();
 
@@ -29,7 +42,7 @@ const UpdateProduct = () => {
 
       console.log(UpdateProduct);
 
-      fetch("http://localhost:5000/product", {
+      fetch(`http://localhost:5000/product/myCart/${_id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -38,12 +51,13 @@ const UpdateProduct = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          if (data.insertedId) {
+          console.log(data);
+          if (data.modifiedCount > 0) {
             Swal.fire({
               title: "Success!",
-              text: "Product Added Successfully",
+              text: "Product Updated Successfully",
               icon: "success",
-              confirmButtonText: "Ok",
+              confirmButtonText: "Cool",
             });
           }
         });
@@ -61,6 +75,7 @@ const UpdateProduct = () => {
               </label>
               <label className="input-group">
                 <input
+                defaultValue={name}
                   type="text"
                   name="name"
                   placeholder="Product Name"
@@ -75,6 +90,7 @@ const UpdateProduct = () => {
               <label className="input-group">
                 <input
                   type="text"
+                  defaultValue={category}
                   name="category"
                   placeholder="Category name"
                   className="input input-bordered w-full"
@@ -91,6 +107,7 @@ const UpdateProduct = () => {
               <label className="input-group">
                 <input
                   type="text"
+                  defaultValue={quantity}
                   name="quantity"
                   placeholder="Supplier Name"
                   className="input input-bordered w-full"
@@ -104,6 +121,7 @@ const UpdateProduct = () => {
               <label className="input-group">
                 <input
                   type="text"
+                  defaultValue={brand}
                   name="brand"
                   placeholder="brand"
                   className="input input-bordered w-full"
@@ -120,6 +138,7 @@ const UpdateProduct = () => {
               <label className="input-group">
                 <input
                   type="text"
+                  defaultValue={price}
                   name="price"
                   placeholder="price"
                   className="input input-bordered w-full"
@@ -133,6 +152,7 @@ const UpdateProduct = () => {
               <label className="input-group">
                 <input
                   type="text"
+                  defaultValue={details}
                   name="details"
                   placeholder="Details"
                   className="input input-bordered w-full"
@@ -150,6 +170,7 @@ const UpdateProduct = () => {
                 <input
                   type="text"
                   name="review"
+                  defaultValue={review}
                   placeholder="Rating"
                   className="input input-bordered w-full"
                 />
@@ -162,6 +183,7 @@ const UpdateProduct = () => {
               <label className="input-group">
                 <input
                   type="text"
+                  defaultValue={photo}
                   name="photo"
                   placeholder="Photo URL"
                   className="input input-bordered w-full"
