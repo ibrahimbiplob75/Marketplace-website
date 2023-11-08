@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const SingleProduct = ({ product }) => {
@@ -64,9 +65,13 @@ const SingleProduct = ({ product }) => {
           </td>
 
           <td className="pl-5">
-            <button className="btn btn-outline btn-success ml-4">Update</button>
+            <Link to={`/update/product/${_id}`}>
+              <button className="btn btn-outline btn-success ml-4">
+                Update
+              </button>
+            </Link>
             <button
-              onClick={()=>handleDelete(_id)}
+              onClick={() => handleDelete(_id)}
               className="btn btn-outline btn-warning ml-4"
             >
               Delete

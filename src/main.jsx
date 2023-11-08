@@ -13,6 +13,7 @@ import AuthProvider from './AuthContext/AuthProvider.jsx';
 import PrivateRoute from './PrivateRoute/PrivateRoute.jsx';
 import ProductDetails from './Components/ProductDetails.jsx';
 import ProductsList from './Components/ProductsList.jsx'
+import UpdateProduct from './Components/UpdateProduct.jsx';
 
 
 
@@ -69,7 +70,12 @@ const router = createBrowserRouter([
         element: <ProductsList></ProductsList>,
         loader: () => fetch("http://localhost:5000/product"),
       },
-      
+      {
+        path: `/update/product/:id`,
+        element: <UpdateProduct></UpdateProduct>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/product/details/${params.id}`),
+      },
     ],
   },
 ]);
