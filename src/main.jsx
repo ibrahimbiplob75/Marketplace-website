@@ -26,7 +26,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/product"),
+        loader: () => fetch("https://10th-assignment-server-tau.vercel.app/product"),
       },
 
       {
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
             <MyCart></MyCart>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/product/myCart"),
+        loader: () => fetch("https://10th-assignment-server-tau.vercel.app/product/myCart"),
       },
       {
         path: "/login",
@@ -63,7 +63,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/product/details/${params.id}`),
+          fetch(`https://10th-assignment-server-tau.vercel.app/product/details/${params.id}`),
       },
       {
         path: "/product/list",
@@ -72,7 +72,7 @@ const router = createBrowserRouter([
             <ProductsList></ProductsList>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/product"),
+        loader: () => fetch("https://10th-assignment-server-tau.vercel.app/product"),
       },
       {
         path: `/update/product/:id`,
@@ -82,7 +82,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/product/details/${params.id}`),
+          fetch(`https://10th-assignment-server-tau.vercel.app/product/details/${params.id}`),
       },
     ],
   },

@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "electronics-marketplace",
+    "staging": "electronics-marketplace"
+  },
+  "targets": {},
+  "etags": {}
+}
