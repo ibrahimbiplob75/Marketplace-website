@@ -42,7 +42,7 @@ const UpdateProduct = () => {
 
       console.log(UpdateProduct);
 
-      fetch(`http://localhost:5000/product/myCart/${_id}`, {
+      fetch(`https://10th-assignment-server-tau.vercel.app/product/myCart/${_id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

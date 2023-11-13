@@ -14,7 +14,7 @@ const ProductDetails = () => {
         const CartProduct={user_email,name,photo,price};
         console.log(CartProduct);
 
-         fetch("http://localhost:5000/Cartproduct", {
+         fetch("https://10th-assignment-server-tau.vercel.app/Cartproduct", {
            method: "POST",
            headers: {
              "content-type": "application/json",

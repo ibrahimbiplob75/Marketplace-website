@@ -18,13 +18,14 @@ const SocialLogin = () => {
   const location = useLocation();
 
   const google = (event) => {
-    event.preventDefault();
+    //event.preventDefault();
     googleSignIn()
       .then(() => {
         toast("You are Logged In !");
-        navigate(location?.state ? location.state : "/");
+         navigate(location?.state ? location.state : "/");
       })
-      .catch(() => {
+      .catch((error) => {
+        console.log(error)
         toast.error("An error occurred during login.");
       });
   };
