@@ -32,7 +32,8 @@ const AddProduct = () => {
 
     console.log(newProduct);
 
-    fetch("http://localhost:5000/product", {
+    fetch("https://10th-assignment-server-tau.vercel.app/product", {
+      
       method: "POST",
       headers: {
         "content-type": "application/json",

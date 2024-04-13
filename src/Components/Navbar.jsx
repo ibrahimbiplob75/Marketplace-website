@@ -13,7 +13,7 @@ const Navbar = () => {
     const list = (
       <>
         <li>
-          <Link className="text-xl font-semibold font-sans" to="/">
+          <Link className="text-xl font-semibold font-sans" to="/home">
             Home
           </Link>
         </li>

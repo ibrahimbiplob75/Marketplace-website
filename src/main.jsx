@@ -1,20 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ErrorPage from './Components/ErrorPage.jsx';
-import Home from './Components/Home.jsx';
-import MyCart from './Components/MyCart.jsx';
-import AddProduct from './Components/AddProduct.jsx';
-import Register from './Register/Register.jsx'
-import LogIn from './LogIn/LogIn.jsx';
-import AuthProvider from './AuthContext/AuthProvider.jsx';
-import PrivateRoute from './PrivateRoute/PrivateRoute.jsx';
-import ProductDetails from './Components/ProductDetails.jsx';
-import ProductsList from './Components/ProductsList.jsx'
-import UpdateProduct from './Components/UpdateProduct.jsx';
-
+import App from "./App"
+import ErrorPage from "./Components/ErrorPage.jsx";
+import Home from "./Components/Home.jsx";
+import MyCart from "./Components/MyCart.jsx";
+import AddProduct from "./Components/AddProduct.jsx";
+import Register from "./Register/Register.jsx";
+import LogIn from "./LogIn/LogIn.jsx";
+import AuthProvider from "./AuthContext/AuthProvider.jsx";
+import PrivateRoute from "./PrivateRoute/PrivateRoute.jsx";
+import ProductDetails from "./Components/ProductDetails.jsx";
+import ProductsList from "./Components/ProductsList.jsx";
+import UpdateProduct from "./Components/UpdateProduct.jsx";
 
 
 const router = createBrowserRouter([
@@ -24,7 +23,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
-        path: "/",
+        path: "/home",
         element: <Home></Home>,
         loader: () => fetch("https://10th-assignment-server-tau.vercel.app/product"),
       },
